@@ -1,0 +1,63 @@
+body{
+    background-color: hsl(240, 56%, 9%);
+}
+#div1{
+    display:grid;
+    place-items: center; 
+    height : 100vh;
+    
+}
+#div2{
+    display:grid;
+    place-items: center;
+    margin-bottom: 0vh; 
+}
+#logo{
+     
+    width:60vw;
+    height:4vh;
+    padding-top:0vh;
+    margin-top:0vh;
+    margin-bottom:0vh;
+}
+#div2txt{
+    text-align: center;
+    font-size: 8vh;
+    color: aliceblue;
+    margin-top:1vh;
+    padding-bottom:0.5vh;
+}
+#div4txt{
+    text-align: center;
+    font-size: 4vh;
+    color: aliceblue;
+}
+#div4{
+    border-radius:5vh;
+    background-color:#00471b ;
+    margin-bottom: 1vh;
+
+}
+#div3{
+    height:30vh;
+    width:70vw;
+    background-color: aliceblue;
+    border-radius: 4vh;
+    display: grid;
+    place-items: center;
+    margin-top:-10vh;
+    padding-top: -3vh;
+}
+#text-input{
+    height: 5vh;
+    width: 60vw;
+    margin-top: 3vh;
+}
+#result{
+    
+    height: 10vh;
+    width: 55vw;
+    color:chocolate;
+    font-size:4vh;
+    background-color: burlywood;
+}
