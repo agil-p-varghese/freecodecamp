@@ -1,40 +1,36 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./App.css";
 
-const App = () => {
-  const [quote, setQuote] = useState("");
-  const [author, setAuthor] = useState("");
+const quotesList = [
+  { quote: "I'm not sure if I was the first man in space or the last dog.", source: "- Yuri Gagarin", year: "1961", tags: "Humor" },
+  { quote: "'We’ll never survive!' 'Nonsense. You’re only saying that because no one ever has.'", source: "- William Goldman", citation: "The Princess Bride", year: "1987", tags: "Inspirational" },
+  { quote: "You know, Hobbes, some days even my lucky rocket ship underpants don't help.", source: "- Bill Watterson", citation: "Calvin and Hobbes", tags: "Humor" },
+  { quote: "Yet man will never be perfect until he learns to create and destroy; he does know how to destroy, and that is half the battle.", source: "- Alexandre Dumas", citation: "The Count of Monte Cristo", year: "1844", tags: "Humanity" },
+  // Add more quotes here
+];
 
-  // Function to fetch a random quote
-  const fetchQuote = async () => {
-    const response = await fetch("https://api.quotable.io/random");
-    const data = await response.json();
-    setQuote(data.content);
-    setAuthor(data.author);
+const App = () => {
+  const [quoteIndex, setQuoteIndex] = useState(Math.floor(Math.random() * quotesList.length));
+
+  // Function to generate a new random quote
+  const getRandomQuote = () => {
+    const newIndex = Math.floor(Math.random() * quotesList.length);
+    setQuoteIndex(newIndex);
   };
 
-  // Fetch a quote when the app loads
-  useEffect(() => {
-    fetchQuote();
-  }, []);
+  const currentQuote = quotesList[quoteIndex];
 
   return (
     <div id="quote-box" className="wrapper">
-      <div id="text">"{quote}"</div>
-      <div id="author">- {author}</div>
-      <button id="new-quote" onClick={fetchQuote}>
+      <div id="text">"{currentQuote.quote}"</div>
+      <div id="author">
+        {currentQuote.source}
+        {currentQuote.year && `, ${currentQuote.year}`}
+      </div>
+      <button id="new-quote" onClick={getRandomQuote}>
         New Quote
       </button>
-      <a
-        id="tweet-quote"
-        href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
-          `"${quote}" - ${author}`
-        )}`}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Tweet
-      </a>
+      
     </div>
   );
 };
