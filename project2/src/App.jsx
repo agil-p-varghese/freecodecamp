@@ -1,35 +1,50 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React,{ useState } from 'react';
+import { marked } from 'marked';
+const App=()=>{
+  const defaultMarkdown = `
+# Heading 1
 
-function App() {
-  const [count, setCount] = useState(0)
+\`<h1>hi all</h1>\`
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+# Myelement
+
+## Heading 2
+
+### Heading 3
+
+[Visit GitHub](https://github.com)
+
+Inline code: \`console.log('hello world')\`
+
+\`\`\`
+// Code block
+function greet() {
+  return "hello world!";
 }
+\`\`\`
 
-export default App
+- List item 1
+- List item 2
+- List item 3
+
+> Blockquote
+
+![Image](https://media.istockphoto.com/id/1328689113/photo/summer-blue-sky-and-white-cloud-white-background-beautiful-clear-cloudy-in-sunlight-calm.jpg?s=612x612&w=0&k=20&c=37qEuwdxyQSx9kuS-_Gz0WiKFX6jMXZN9aRY47mN2vI=)
+
+**BOLD TEXT**
+`;
+
+  const [markdown,setMarkdown]=useState(defaultMarkdown);
+  const handleChange=(event)=>{
+    setMarkdown(event.target.value);
+  }
+  return (
+    <div>
+    <textarea id="editor" value={markdown} onChange={handleChange} />
+    <div id='preview' dangerouslySetInnerHTML={{__html:marked(markdown)}} />
+
+    </div>
+  );
+  
+};
+export default App;
