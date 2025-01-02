@@ -30,7 +30,7 @@ const App = () => {
       <button id="new-quote" onClick={getRandomQuote}>
         New Quote
       </button>
-      <a id="tweet-quote" href="twitter.com/intent/tweet">tweet</a>
+      <a id="tweet-quote" href="twitter.com/intent/tweet" target="_blank">tweet</a>
       
     </div>
   );
