@@ -1,0 +1,32 @@
+
+
+<Card.Root maxW="2xs" borderWidth="1px" borderRadius="lg" overflow="hidden">
+      <Image
+        src="./robo face.jpg"
+        alt="Placeholder Image"
+        objectFit="cover"
+      />
+      <Card.Body>
+        <Text fontSize="md" fontWeight="bold">suzuki Robo</Text>
+      </Card.Body>
+      <Card.Footer>
+        <Button colorScheme="teal" size="sm" color="white">
+          Learn More
+        </Button>
+      </Card.Footer>
+    </Card.Root>
+
+    <Card.Root maxW="2xs" borderWidth="1px" borderRadius="lg" overflow="hidden">
+        
+    <Image src='./robo face.jpg' objectFit="cover"/>
+    <Card.Body>
+    <Text fontSize="md" fontWeight="bold">suzuki Robo</Text>
+    </Card.Body>
+    <Card.Footer>
+          <Button colorScheme="teal" size="sm" color="white">
+          Learn More
+        </Button>
+    </Card.Footer>
+    </Card.Root>
+
+  
